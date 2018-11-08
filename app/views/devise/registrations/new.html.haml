@@ -1,21 +1,29 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.container
+  .row
+    .col.s12
+      %h1.title 新規登録
+      = form_for(resource, as: resource_name, url: registration_path(resource_name), class: 'col s12' ) do |f|
+        = devise_error_messages!
+        .row
+          .input-field.col.s12
+            = f.label :email, class:'active' do
+              メールアドレス
+            = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: '例) example@gmail.com', class: 'validate'
+        .row
+          .input-field.col.s12
+            = f.label :password, class:'active' do
+              パスワード
+              - if @minimum_password_length
+                %span (#{@minimum_password_length} 文字以上)
+            = f.password_field :password, autocomplete: "new-password", placeholder: 'パスワードを入力してください', class: 'validate'
+        .row
+          .input-field.col.s12
+            = f.label :password_confirmation, class:'active' do
+              パスワードの確認
+            = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: 'もう一度パスワードを入力してください', class: 'validate'
+        .row
+          .input-field.col.s12
+            = f.submit '確認して登録', class: 'btn btn-wide bg-pink'
+    .col.s12
+      .collection
+        = render "devise/shared/links"
