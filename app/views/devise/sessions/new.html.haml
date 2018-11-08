@@ -1,0 +1,26 @@
+.container
+  .row
+    .col.s12
+      %h1.title ログイン
+      = form_for(resource, as: resource_name, url: session_path(resource_name), class: 'col s12' ) do |f|
+        .row
+          .input-field.col.s12
+            = f.label :email, class:'active' do
+              メールアドレス
+            = f.email_field :email, autofocus: true, autocomplete: 'email', placeholder: '例) example@gmail.com', class: 'validate'
+        .row
+          .input-field.col.s12
+            = f.label :password, class:'active' do
+              パスワード
+            = f.password_field :password, autocomplete: "current-password", placeholder: 'パスワードを入力してください', class: 'validate'
+          -# - if devise_mapping.rememberable?
+          -#   %p
+          -#     = f.label :remember_me do
+          -#       = f.check_box :remember_me, include_hidden: false
+          -#       %span パスワードを保存しますか？
+        .row
+          .input-field.col.s12
+            = f.submit 'ログイン', class: 'btn btn-wide bg-pink'
+    .col.s12
+      .collection
+        = render "devise/shared/links"
