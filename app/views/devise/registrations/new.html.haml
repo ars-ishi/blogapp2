@@ -6,6 +6,11 @@
         = devise_error_messages!
         .row
           .input-field.col.s12
+            = f.label :name, class:'active' do
+              ニックネーム
+            = f.text_field :name, autofocus: true, autocomplete: "name", placeholder: '例) ハナコ', class: 'validate'
+        .row
+          .input-field.col.s12
             = f.label :email, class:'active' do
               メールアドレス
             = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: '例) example@gmail.com', class: 'validate'
