@@ -1,2 +1,6 @@
 %footer.footer.grey.lighten-3
-  &copy; 2018 SiteName
+  %p &copy; 2018 SiteName
+  - if can? :admin, current_user
+    %p
+      %span adminユーザーでログイン中です
+      = link_to '管理ページへ', '/admin/'
