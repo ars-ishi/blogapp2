@@ -1,0 +1,27 @@
+.col.s12
+  %h1.title 投稿フォーム
+  = form_for(@article, class: 'col s12') do |f|
+    .row
+      .input-field.file-field.col.s12
+        .file-field-label 画像
+        .btn.bg-pink-outline
+          .span
+            %i.material-icons perm_media
+          = f.file_field :main_image
+        .file-path-wrapper
+          = text_field :main_image, :name, required: 'required', placeholder: 'イメージを選択してください', class: 'file-path validate'
+    .row
+      .input-field.col.s12
+        = f.label :title, class:'active' do
+          タイトル
+        = f.text_field :title, autofocus: true, autocomplete: 'off', required: 'required', placeholder: 'タイトルを入力してください', class: 'validate'
+    .row
+      .input-field.col.s12
+        = f.label :content, class:'active' do
+          本文
+        = f.text_area :content, autocomplete: 'off', required: 'required', placeholder: '本文を入力してください', class: 'materialize-textarea'
+    .row
+      .input-field.col.s12
+        = f.submit '投稿する', class: 'btn btn-wide bg-pink'
+:javascript
+  M.textareaAutoResize($('#article_content'));
