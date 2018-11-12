@@ -5,4 +5,10 @@ $(document).on('turbolinks:load', function(){
       $(this).css('transform', 'translateY(0px)');
     });
   });
+  M.AutoInit();
+  $('.dropdown-trigger').dropdown({
+    alignment: 'right',
+    constrainWidth: 'false',
+    coverTrigger: 'false'
+  });
 });
