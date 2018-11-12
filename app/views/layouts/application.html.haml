@@ -11,9 +11,16 @@
     = stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Pacifico', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js', 'data-turbolinks-track': 'reload'
   %body
     .wrapper.grey.lighten-5
       = render partial: 'layouts/flash-message'
-      = render partial: 'layouts/header'
-      = yield
+      - unless @path.is('articles#index')
+        = render partial: 'layouts/header'
+        .container
+          .row
+            = yield
+      - else
+        = yield
       = render partial: 'layouts/footer'
