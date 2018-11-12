@@ -11,4 +11,5 @@ $(document).on('turbolinks:load', function(){
     constrainWidth: 'false',
     coverTrigger: 'false'
   });
+  $('.tooltipped').tooltip();
 });
