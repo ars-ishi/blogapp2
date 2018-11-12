@@ -1,5 +1,55 @@
-%p articles#index
-- if user_signed_in?
-  %p ログイン中
-- else
-  %p ログアウト中
+.nav-index
+  %nav
+    .nav-wrapper.container
+      = link_to 'SiteName', root_path, class: 'brand-logo left site-name'
+      .right-align.dropdown-menu
+        = link_to '#', class: 'dropdown-trigger', 'data-target': 'dropdown1' do
+          %i.material-icons.dropdown-ic view_module
+        %ul#dropdown1.dropdown-content.index-menu
+          - if user_signed_in?
+            %li
+              = link_to new_article_path do
+                %i.material-icons> create
+                投稿する
+            %li
+              = link_to root_path do
+                %i.material-icons> favorite
+                お気に入り
+            %li
+              = link_to root_path do
+                %i.material-icons> person
+                マイページ
+            %li
+              = link_to destroy_user_session_path, method: :'delete' do
+                %i.material-icons> exit_to_app
+                ログアウト
+          - else
+            %li
+              = link_to new_user_session_path do
+                %i.material-icons> person
+                ログイン
+            %li
+              = link_to new_user_registration_path do
+                %i.material-icons> person_add
+                会員登録
+.slider.index-slider
+  %ul.slides
+    %li
+      = image_tag 'slider01.jpg', class: 'image-resize'
+      .caption.center-align
+        %h3.slider-caption Share your pictures of animals.
+        %h5.slider-slogan 癒される動物の写真をシェアしよう
+    %li
+      = image_tag 'slider02.jpg', class: 'image-resize'
+      -# .caption.left-align
+      -#   %h3.slider-caption Share your pictures of animals.
+      -#   %h5.slider-slogan 癒される動物の写真をシェアしよう
+    %li
+      = image_tag 'slider03.jpg', class: 'image-resize'
+      -# .caption.right-align
+      -#   %h3.slider-caption Share your pictures of animals.
+      -#   %h5.slider-slogan 癒される動物の写真をシェアしよう
+.container
+  .row
+    #article_box
+      = render @articles
