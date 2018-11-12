@@ -54,6 +54,25 @@
   }
 }
 
+@media only screen and (max-width: 460px) {
+  .article-wrapper {
+    width: 340px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .article-wrapper {
+    width: 300px;
+  }
+}
+
+
+@media only screen and (max-width: 320px) {
+  .article-wrapper {
+    width: 280px;
+  }
+}
+
 .article_title {
   margin: 20px auto;
   padding: 0.5em;
