@@ -1,0 +1,103 @@
+#article_box {
+  margin: 380px auto 0;
+}
+
+.article-wrapper {
+  width: 300px;
+}
+
+@media only screen and (max-width: 1327px) {
+  .article-wrapper {
+    width: 280px;
+  }
+}
+
+@media only screen and (max-width: 1241px) {
+  .article-wrapper {
+    width: 400px;
+  }
+}
+
+@media only screen and (max-width: 1162px) {
+  .article-wrapper {
+    width: 360px;
+  }
+}
+
+@media only screen and (max-width: 1048px) {
+  .article-wrapper {
+    width: 340px;
+  }
+}
+
+@media only screen and (max-width: 816px) {
+  .article-wrapper {
+    width: 320px;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .article-wrapper {
+    width: 300px;
+  }
+}
+
+@media only screen and (max-width: 722px) {
+  .article-wrapper {
+    width: 280px;
+  }
+}
+
+@media only screen and (max-width: 675px) {
+  .article-wrapper {
+    width: 400px;
+  }
+}
+
+.article_title {
+  margin: 20px auto;
+  padding: 0.5em;
+  font-size: 1.5em;
+  color: #494949;
+  border-left: solid 5px #f55c6e;
+}
+
+.text-over-flow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.over-title {
+  background: rgba(0,0,0,0.2);
+  width: 100%;
+  min-height: 84px;
+}
+
+i.mini {
+  font-size: 1.2rem;
+  vertical-align: 40%;
+}
+
+.tip-date {
+  vertical-align: 35%;
+  font-size: .8rem;
+}
+
+.text-detail {
+  font-family: -apple-system, BlinkMacSystemFont,
+             "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  padding-top: 10px;
+  color: #424242;
+  letter-spacing: 1.5px;
+  line-height: 1.75;
+  min-height: 36px;
+}
+
+.card-wrap {
+  margin: 2.8rem 0 2rem;
+}
+
+.btn-floating i.favorite {
+  color: #f3979b;
+}
