@@ -1,0 +1,28 @@
+.col.s12
+  .card-wrap
+    .card
+      .card-image
+        - if @article.main_image.present?
+          = image_tag @article.main_image.url, onerror: "this.src='slider01.jpg'"
+        - else
+          = image_tag 'slider01.jpg'
+        %span.card-title.text-over-flow.over-title= @article.title
+      .card-content
+        .chip
+          %i.mini.material-icons today
+          %span.tip-date= @article.created_at.strftime('%Y.%m.%d')
+        .chip
+          %i.mini.material-icons face
+          %span.tip-date= @article.user.name
+        .chip
+          %i.mini.material-icons favorite
+          %span.tip-date 1
+        = simple_format(@article.content, class: 'text-detail')
+      - if user_signed_in? && @article.user == current_user
+        .card-action
+          -# = link_to "編集", "/articles/#{@article.id}/edit", class: "btn waves-effect grey lighten-4 grey-text text-darken-2"
+          -# = link_to "削除", "/articles/#{@article.id}", class: "btn waves-effect grey lighten-4 grey-text text-darken-2", method: :"delete"
+          -# - if !Favorite.exists?(user_id: current_user.id, article_id:@article.id )
+          -#   = link_to "お気に入り", article_add_path(@article), class: "btn waves-effect grey lighten-4 grey-text text-darken-2", method: :post
+          -# - else
+          -#   = link_to "お気に入り解除", article_add_path(@article), class: "btn waves-effect grey lighten-4 grey-text text-darken-2", method: :delete
