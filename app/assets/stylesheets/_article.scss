@@ -3,74 +3,8 @@
 }
 
 .article-wrapper {
-  width: 300px;
-}
-
-@media only screen and (max-width: 1327px) {
-  .article-wrapper {
-    width: 280px;
-  }
-}
-
-@media only screen and (max-width: 1241px) {
-  .article-wrapper {
-    width: 400px;
-  }
-}
-
-@media only screen and (max-width: 1162px) {
-  .article-wrapper {
-    width: 360px;
-  }
-}
-
-@media only screen and (max-width: 1048px) {
-  .article-wrapper {
-    width: 340px;
-  }
-}
-
-@media only screen and (max-width: 816px) {
-  .article-wrapper {
-    width: 320px;
-  }
-}
-
-@media only screen and (max-width: 769px) {
-  .article-wrapper {
-    width: 300px;
-  }
-}
-
-@media only screen and (max-width: 722px) {
-  .article-wrapper {
-    width: 280px;
-  }
-}
-
-@media only screen and (max-width: 675px) {
-  .article-wrapper {
-    width: 400px;
-  }
-}
-
-@media only screen and (max-width: 460px) {
-  .article-wrapper {
-    width: 340px;
-  }
-}
-
-@media only screen and (max-width: 360px) {
-  .article-wrapper {
-    width: 300px;
-  }
-}
-
-
-@media only screen and (max-width: 320px) {
-  .article-wrapper {
-    width: 280px;
-  }
+  width: 100%;
+  float: left;
 }
 
 .article_title {
@@ -98,6 +32,10 @@ i.mini {
   vertical-align: 40%;
 }
 
+i.link {
+  vertical-align: -25%;
+}
+
 .tip-date {
   vertical-align: 35%;
   font-size: .8rem;
@@ -119,4 +57,56 @@ i.mini {
 
 .btn-floating i.favorite {
   color: #f3979b;
+}
+
+.article-wrapper .card .card-image img {
+  height: 250px;
+  object-fit: cover;
+}
+
+.article-wrapper .chip {
+  max-width: 48%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (min-width:480px) and ( max-width:600px) {
+  .article-wrapper {
+    width: 100%;
+    margin-top: 5px;
+  }
+}
+
+@media screen and (min-width:600px) and ( max-width:1200px) {
+  .article-wrapper {
+    width: 49%;
+    margin-top: 5px;
+    .card .card-image img {
+      height: 200px;
+    }
+  }
+  .article-wrapper:nth-child(2n-1) {
+    margin-right: 1%;
+  }
+}
+
+@media screen and (min-width:1200px) {
+  .article-wrapper {
+    width: 32.6666666666%;
+    margin-right: 1%;
+    margin-top: 5px;
+    .card .card-image img {
+      height: 200px;
+    }
+  }
+  .article-wrapper:nth-child(3n) {
+    margin-right: 0;
+  }
+}
+
+.chip-wrapper {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
