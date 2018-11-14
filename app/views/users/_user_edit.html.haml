@@ -1,0 +1,29 @@
+= form_for [@user], remote: true do |f|
+  .card-wrap
+    .user-edit
+      = f.submit '更新する', method: :post, remote: true, class: 'btn bg-pink'
+      #cancel.btn.bg-pink-outline キャンセル
+    .card.no-shadow
+      .card-image
+        = f.file_field :bg_image, class: 'file_field_view'
+        = f.label :bg_image do
+          .user_bg_image-file-preview{style: "background: no-repeat center/100% url(#{@user_bg})"}
+          .user-bg-edit
+            %span.bg-select 背景画像を選択
+      .user-icon-wrap
+        .user-icon
+          = f.file_field :ic_image, class: 'file_field_view'
+          .user_ic_image-file-preview{style: "background: no-repeat center/180% url(#{@user_ic})"}
+            = f.label :ic_image do
+              .user-icon-edit
+                %span.ic-select 選択
+      .card-content
+        .row
+          .input-field.col.s6
+            = f.label :name, class:'active' do
+              ニックネーム
+            = f.text_field :name, autofocus: false, autocomplete: "name", placeholder: '例) ポチ', class: 'validate'
+          .input-field.col.s12
+            = f.label :introduction, class:'active' do
+              自己紹介
+            = f.text_field :introduction, autofocus: false, autocomplete: "false", placeholder: '自己紹介を入力してください', class: 'validate'
