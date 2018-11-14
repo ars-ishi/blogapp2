@@ -12,4 +12,10 @@ $(document).on('turbolinks:load', function(){
     coverTrigger: 'false'
   });
   $('.tooltipped').tooltip();
+  if (window.location.href.match(/^.*\//)) {
+    $('.slider').slider({
+      indicators: false,
+      interval: 4000
+    });
+  }
 });
