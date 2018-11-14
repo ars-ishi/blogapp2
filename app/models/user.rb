@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :articles, dependent: :destroy
   enum role: { admin: 0, member: 1 }
+  mount_uploader :ic_image, UserIcImageUploader
+  mount_uploader :bg_image, UserBgImageUploader
 end
