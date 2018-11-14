@@ -101,12 +101,32 @@ a {
   color: #fff;
 }
 
+.user-icon-wrap {
+  position: relative;
+}
+
+.user-icon-image {
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+}
+
 @media only screen and (max-width: 599px) {
   .wide-view {
     display: none;
   }
   .mobile-view {
     display: block;
+  }
+  .user-icon {
+    width: 100px;
+    height: 50px;
+    margin: auto;
+  }
+  .user-icon-image {
+    width: 100px;
+    height: 100px;
+    top: -50px;
   }
 }
 
@@ -117,6 +137,20 @@ a {
   .mobile-view {
     display: none;
   }
+  .user-icon {
+    width: 150px;
+    height: 75px;
+    margin: auto;
+  }
+  .user-icon-image {
+    width: 150px;
+    height: 150px;
+    top: -75px;
+  }
+}
+
+.no-shadow {
+  box-shadow: 0 0 0 0 rgba(0,0,0,0)
 }
 
 // deviseエラーメッセージ装飾
@@ -177,4 +211,8 @@ nav ul a {
 nav ul li a:hover {
   background: rgba(0, 0, 0, 0);
   text-shadow:0px 0px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+  color: #757575;
 }
