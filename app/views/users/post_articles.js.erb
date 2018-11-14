@@ -1,0 +1,9 @@
+<% if @path.is('users#post_articles') %>
+  $('.mypage_box').html(
+    "<%= j(render partial: 'articles/article', collection: @post_articles, as: 'article') %>"
+  );
+<% elsif @path.is('users#favorite_articles') %>
+  $('.mypage_box').html(
+    "<%= j(render partial: 'articles/article', collection: @favorite_articles, as: 'article') %>"
+  );
+<% end %>

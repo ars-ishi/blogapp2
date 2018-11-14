@@ -1,6 +1,6 @@
 .col.s12
   .card-wrap
-    .card
+    .card.no-shadow
       .card-image
         - if @article.main_image.present?
           = image_tag @article.main_image.url, onerror: "this.src='slider01.jpg'"

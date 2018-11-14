@@ -1,0 +1,29 @@
+$('#edit-area').html(
+  "<%= j(render partial: 'users/user_edit') %>"
+);
+$('#cancel').on("click", function(){
+  $('#edit-area').html(
+    "<%= j(render partial: 'users/user_info') %>"
+  );
+});
+function imageUploadPreview(fieldId, imageId, capId, baseImage) {
+  $(fieldId).change(
+    function () {
+      $(imageId).css({'background': 'no-repeat center/180% url(' + baseImage});
+      $(capId).css({'display': "inline"});
+      if (!this.files.length) {
+        return;
+      }
+      var file = $(this).prop('files')[0];
+      var fr = new FileReader();
+      $(imageId).css('background-image', 'none');
+      fr.onload = function() {
+        $(imageId).css({'background': 'no-repeat center/180%' + 'url(' + fr.result + ')'});
+        $(capId).css({'display': "none"});
+      }
+      fr.readAsDataURL(file);
+    }
+  );
+};
+imageUploadPreview('#user_ic_image', '.user_ic_image-file-preview', '.ic-select', "<%= @user_ic %>");
+imageUploadPreview('#user_bg_image', '.user_bg_image-file-preview', '.bg-select', "<%= @user_bg %>");

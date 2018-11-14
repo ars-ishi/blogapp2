@@ -8,18 +8,21 @@
           = image_tag 'slider01.jpg'
         %span.card-title.text-over-flow.over-title= article.title
       .card-content
-        .chip
-          %i.mini.material-icons today
-          %span.tip-date= article.created_at.strftime('%Y.%m.%d')
-        .chip
-          %i.mini.material-icons face
-          %span.tip-date= User.find(article.user_id.to_i).name
-        .chip
-          %i.mini.material-icons favorite
-          %span.tip-date 1
-          -# %span.tip-date= article.favorite_ids.length
+        .chip-wrapper{style:'width:100%;height:37px'}
+          .chip
+            %i.mini.material-icons today
+            %span.tip-date= article.created_at.strftime('%Y.%m.%d')
+          .chip
+            %i.mini.material-icons favorite
+            %span.tip-date 1
+            -# %span.tip-date= article.favorite_ids.length
         %p.text-over-flow.text-detail= article.content
     .card-action
+      .chip-wrapper{style:'width:100%;height:37px'}
+        = link_to user_path(article.user), class: 'base' do
+          %i.link.material-icons face
+          = User.find(article.user_id.to_i).name
+          さんの投稿
       .right-align
         = link_to root_path, class: 'btn btn-floating grey lighten-5 waves-effect waves-light' do
           %i.favorite.material-icons favorite_border

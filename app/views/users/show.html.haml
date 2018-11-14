@@ -1,0 +1,15 @@
+= render partial: 'layouts/header'
+.container
+  .row
+    .col.s12
+      #edit-area
+        = render partial: 'user_info'
+    .row
+    .col.s12
+      %ul.tabs
+        %li.tab.col.s6.active
+          = link_to '投稿', post_articles_user_path(params[:id]), class: 'post_tab_btn', method: :get, remote: true
+        %li.tab.col.s6
+          = link_to 'お気に入り', favorite_articles_user_path(params[:id]), class: 'favorite_tab_btn', method: :get, remote: true
+      .mypage_box
+        = render partial: 'articles/article', collection: @post_articles, as: 'article'
