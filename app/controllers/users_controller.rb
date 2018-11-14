@@ -30,8 +30,8 @@ class UsersController < ApplicationController
 
   def set_instances
     @user = User.find(params[:id])
-    @user_ic = @user.ic_image.present? ? @user.ic_image.url : '/assets/slider03.jpg'
-    @user_bg = @user.bg_image.present? ? @user.bg_image.url : '/assets/user_bg_image_basic.jpg'
+    @user_ic = @user.ic_image.present? ? @user.ic_image.url : 'https://s3-ap-northeast-1.amazonaws.com/upload-blogapp2/uploads/user/ic_image/1/slider03.jpg'
+    @user_bg = @user.bg_image.present? ? @user.bg_image.url : 'https://s3-ap-northeast-1.amazonaws.com/upload-blogapp2/uploads/user/bg_image/1/user_bg_image_basic.jpg'
     @post_articles = @user.articles.includes(:user).order('created_at DESC')
     @favorite_articles = @user.articles.includes(:user).order('created_at ASC')
   end
