@@ -1,5 +1,5 @@
 .card-wrap
-  - if params[:id].to_i == current_user.id
+  - if user_signed_in? && params[:id].to_i == current_user.id
     .user-edit
       = link_to 'プロフィール編集', edit_user_path(params[:id]), method: :get, remote: true, class: 'btn bg-pink'
   .card.no-shadow
