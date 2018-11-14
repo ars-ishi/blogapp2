@@ -9,17 +9,14 @@
               = link_to new_article_path, class: 'tooltipped', 'data-tooltip':'投稿する' do
                 %i.material-icons> create
             %li
-              = link_to root_path, class: 'tooltipped', 'data-tooltip':'お気に入り' do
-                %i.material-icons> favorite
-            %li
-              = link_to root_path, class: 'tooltipped', 'data-tooltip':'マイページ' do
+              = link_to user_path(current_user), class: 'tooltipped', 'data-tooltip':'マイページ' do
                 %i.material-icons> person
             %li
               = link_to destroy_user_session_path, class: 'tooltipped', 'data-tooltip':'ログアウト', method: :'delete' do
                 %i.material-icons> exit_to_app
           .mobile-view
             %li
-              = link_to '#', class: 'dropdown-trigger tooltipped', 'data-target': 'dropdown1', 'data-tooltip':'メニュー' do
+              = link_to '#', class: 'dropdown-trigger tooltipped', 'data-target': 'dropdown1' do
                 %i.material-icons> view_module
               %ul#dropdown1.dropdown-content.index-menu
                 %li
@@ -27,11 +24,7 @@
                     %i.material-icons> create
                     投稿する
                 %li
-                  = link_to root_path do
-                    %i.material-icons> favorite
-                    お気に入り
-                %li
-                  = link_to root_path do
+                  = link_to user_path(current_user) do
                     %i.material-icons> person
                     マイページ
                 %li
