@@ -1,0 +1,16 @@
+.card-wrap
+  - if params[:id].to_i == current_user.id
+    .user-edit
+      = link_to 'プロフィール編集', edit_user_path(params[:id]), method: :get, remote: true, class: 'btn bg-pink'
+  .card.no-shadow
+    .card-image
+      .user_bg_image-file-preview{style: "background: no-repeat center/100% url(#{@user_bg})"}
+    .user-icon-wrap
+      .user-icon
+        .user_ic_image-file-preview{style: "background: no-repeat center/180% url(#{@user_ic})"}
+    .card-content.user-info
+      %span.card-title.center-align #{@user.name}
+      - if @user.introduction.present?
+        = simple_format(@user.introduction, class: 'text-detail')
+      - else
+        = simple_format('自己紹介は入力されていません。', class: 'text-detail')
