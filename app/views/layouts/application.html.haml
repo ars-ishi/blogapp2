@@ -6,6 +6,13 @@
     = csrf_meta_tags
     = csp_meta_tag
     %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    %link{:href => "/assets/apple-touch-icon.png", :rel => "apple-touch-icon", :sizes => "180x180"}/
+    %link{:href => "/assets/favicon.ico", :rel => "shortcut icon"}/
+    %link{:href => "/assets/favicon-32x32.png", :rel => "icon", :sizes => "32x32", :type => "image/png"}/
+    %link{:href => "/assets/favicon-16x16.png", :rel => "icon", :sizes => "16x16", :type => "image/png"}/
+    %link{:color => "#e48282", :href => "/assets/safari-pinned-tab.svg", :rel => "mask-icon"}/
+    %meta{:content => "#e48282", :name => "msapplication-TileColor"}/
+    %meta{:content => "#ffffff", :name => "theme-color"}/
     = stylesheet_link_tag    'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag    'https://fonts.googleapis.com/icon?family=Material+Icons', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_link_tag    'https://fonts.googleapis.com/css?family=Pacifico', media: 'all', 'data-turbolinks-track': 'reload'
@@ -15,11 +22,14 @@
   %body
     .wrapper.grey.lighten-5
       = render partial: 'layouts/flash-message'
-      - unless @path.is('articles#index') || @path.is('users#show')
-        = render partial: 'layouts/header'
+      - if @path.is('articles#index')
+        .nav-index
+          = render partial: 'layouts/header'
+        = yield
+      - else
+        .navbar-fixed
+          = render partial: 'layouts/header'
         .container
           .row
             = yield
-      - else
-        = yield
       = render partial: 'layouts/footer'
