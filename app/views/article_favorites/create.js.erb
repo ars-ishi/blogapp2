@@ -4,4 +4,7 @@ $('#article-facorite-btn-<%= @article.id %>').html(
 $('#article-facorite-count-<%= @article.id %>').html(
   "<%= j(render partial: 'article_favorites/favorite_count', locals: { article: @article }) %>"
 );
-$('.tooltipped').tooltip();
+if ($('.wide-view').is(':visible')) {
+  $('.facorite-btn-wrap > a').addClass('tooltipped');
+  $('.tooltipped').tooltip();
+}
