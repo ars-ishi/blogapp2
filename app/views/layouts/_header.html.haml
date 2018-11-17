@@ -31,9 +31,17 @@
                   %i.material-icons> exit_to_app
                   ログアウト
       - else
-        %li
-          = link_to new_user_session_path, class: 'tooltipped', 'data-tooltip':'ログイン' do
-            %i.material-icons> exit_to_app
-        %li
-          = link_to new_user_registration_path, class: 'tooltipped', 'data-tooltip':'会員登録' do
-            %i.material-icons> person_add
+        .wide-view
+          %li
+            = link_to new_user_session_path, class: 'tooltipped', 'data-tooltip':'ログイン' do
+              %i.material-icons> exit_to_app
+          %li
+            = link_to new_user_registration_path, class: 'tooltipped', 'data-tooltip':'会員登録' do
+              %i.material-icons> person_add
+        .mobile-view
+          %li
+            = link_to new_user_session_path do
+              %i.material-icons> exit_to_app
+          %li
+            = link_to new_user_registration_path do
+              %i.material-icons> person_add
