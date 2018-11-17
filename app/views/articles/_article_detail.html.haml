@@ -1,0 +1,18 @@
+.card-image
+  - if article.main_image.present?
+    = image_tag article.main_image.url, onerror: "this.src='slider01.jpg'"
+  - else
+    = image_tag 'slider01.jpg'
+  %span.card-title.text-over-flow.over-title= article.title
+.card-content
+  .chip-wrapper
+    .chip
+      %i.mini.material-icons today
+      %span.tip-date= article.created_at.strftime('%Y.%m.%d')
+    .chip
+      %div{ id: "article-facorite-count-#{article.id}" }
+        = render 'article_favorites/favorite_count', article: article
+  - if @path.is('articles#show')
+    = simple_format(article.content, class: 'text-detail')
+  - else
+    = simple_format(article.content, class: 'text-over-flow text-detail')

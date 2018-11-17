@@ -11,7 +11,10 @@ $(document).on('turbolinks:load', function(){
     constrainWidth: 'false',
     coverTrigger: 'false'
   });
-  $('.tooltipped').tooltip();
+  if ($('.wide-view').is(':visible')) {
+    $('.facorite-btn-wrap > a').addClass('tooltipped');
+    $('.tooltipped').tooltip();
+  }
   if (window.location.href.match(/^.*\//)) {
     $('.slider').slider({
       indicators: false,

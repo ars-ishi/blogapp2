@@ -1,0 +1,9 @@
+.card-action
+  .chip-wrapper
+    = link_to user_path(article.user), class: 'base' do
+      %i.link.material-icons face
+      %span 投稿: #{article.user.name}さん
+  - if user_signed_in?
+    .right-align
+      %div{ id: "article-facorite-btn-#{article.id}", class: 'facorite-btn-wrap' }
+        = render 'article_favorites/favorite', article: article

@@ -49,6 +49,7 @@ i.link {
   letter-spacing: 1.5px;
   line-height: 1.75;
   min-height: 36px;
+  word-break: break-word;
 }
 
 .card-wrap {
@@ -109,4 +110,6 @@ i.link {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 100%;
+  height: 37px
 }

@@ -32,8 +32,8 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user_ic = @user.ic_image.present? ? @user.ic_image.url : 'https://s3-ap-northeast-1.amazonaws.com/upload-blogapp2/uploads/user/ic_image/1/slider03.jpg'
     @user_bg = @user.bg_image.present? ? @user.bg_image.url : 'https://s3-ap-northeast-1.amazonaws.com/upload-blogapp2/uploads/user/bg_image/1/user_bg_image_basic.jpg'
-    @post_articles = Article.where('user_id = ?', "#{@user.id}").includes(:user).order('created_at DESC')
-    @favorite_articles = @user.articles.includes(:user).order('created_at DESC')
+    @post_articles = @user.articles.order('created_at DESC')
+    @favorite_articles = @user.favorite_articles.order('created_at DESC')
   end
 
   def move_to_show

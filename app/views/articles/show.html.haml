@@ -1,24 +1,5 @@
 .col.s12
   .card-wrap
     .card.no-shadow
-      .card-image
-        - if @article.main_image.present?
-          = image_tag @article.main_image.url, onerror: "this.src='slider01.jpg'"
-        - else
-          = image_tag 'slider01.jpg'
-        %span.card-title.text-over-flow.over-title= @article.title
-      .card-content
-        .chip
-          %i.mini.material-icons today
-          %span.tip-date= @article.created_at.strftime('%Y.%m.%d')
-        .chip.favorite_count
-          = render 'article_favorites/favorite_count', article: @article
-        = simple_format(@article.content, class: 'text-detail')
-      .card-action
-        .chip-wrapper{style:'width:100%;height:37px'}
-          = link_to user_path(@article.user), class: 'base' do
-            %i.link.material-icons face
-            %span #{@article.user.name}さんの投稿
-        - if user_signed_in?
-          .right-align
-            = render 'article_favorites/favorite', article: @article
+      = render 'articles/article_detail', article: @article
+      = render 'articles/article_subinfo', article: @article
