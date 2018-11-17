@@ -37,12 +37,12 @@
   text-shadow:0px 0px 5px #000;
 }
 
-.nav-index nav ul li a.tooltipped {
+.nav-index nav ul li a {
   color:  #fff;
   text-shadow:0px 0px 2px #000;
 }
 
-.nav-index nav ul li a.tooltipped:hover {
+.nav-index nav ul li a:hover {
   text-shadow:0px 0px 5px #000;
 }
 
@@ -50,6 +50,11 @@
   min-width: 300px;
 }
 
-ul.index-menu li a {
+nav ul li ul.index-menu li a {
   color: #757575;
+  text-shadow: none;
+}
+
+nav ul li ul.index-menu li a:hover {
+  text-shadow: none;
 }
